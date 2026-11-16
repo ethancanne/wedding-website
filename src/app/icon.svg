@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ethan and Chrissy Monogram">
+  <rect width="64" height="64" rx="10" fill="#F8F5EF" />
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#9A8875" stroke-width="1.25" />
+  <text
+    x="32"
+    y="39"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-style="italic"
+    fill="#111111"
+    letter-spacing="0.5"
+  >
+    E&amp;C
+  </text>
+</svg>
