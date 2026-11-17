@@ -135,7 +135,7 @@ export const wedding: WeddingConfig = {
   },
 
   date: "2027-05-21",
-  isoDateTime: "2027-05-21T16:00:00-04:30",
+  isoDateTime: "2027-05-21T16:30:00-04:00",
   displayDate: "May 21, 2027",
   displayTime: "4:30 PM",
   dayOfWeek: "Friday",
@@ -148,76 +148,77 @@ export const wedding: WeddingConfig = {
   ],
 
   hero: {
-    kicker: "Save the Date",
-    invitationLine: "Invite You to Their Wedding Celebration",
-    subnote: "Reception to Follow",
+    kicker: "We're Getting Married",
+    invitationLine: "Invite You to Celebrate Our Wedding",
+    subnote: "Dinner & Reception to Follow",
     welcomeMessage:
-      "We joyfully invite you to share in our celebration of love, commitment, and the beginning of our marriage.",
+      "We are so excited to celebrate our wedding with the family and friends who have been part of our lives. It would mean so much to have you there.",
   },
 
   countdown: {
-    heading: "Counting Down to Forever",
-    completedHeading: "Just Married",
+    heading: "Counting Down to May 21",
+    completedHeading: "We're Married!",
     completedMessage:
-      "Thank you for celebrating May 21, 2027 with us and being part of our marriage story.",
+      "Thank you for celebrating with us and being part of the beginning of our marriage.",
   },
 
   story: {
-    kicker: "How It All Began",
+    kicker: "A Little About Us",
     heading: "Our Story",
     leadQuote:
-      "From the very first conversation to a golden-hour promise beneath the trees, every season together has led us here.",
-    // Replace the placeholder paragraphs below with your personal relationship story:
+      "We're so grateful for the way God has brought our stories together and taught us to love one another with His grace.",
     paragraphs: [
-      "[Placeholder — How We Met] Share the story of how your paths first crossed, your earliest impressions of one another, and the moments when a simple connection began turning into something lasting.",
-      "[Placeholder — Growing Together] Describe the seasons, adventures, quiet traditions, and shared milestones that shaped your relationship and made it clear you had found home in each other.",
-      "[Placeholder — The Proposal & Looking Ahead] Recount the golden-hour proposal surrounded by the people you love most, and share what you are most excited for as you gather with family and friends on May 21, 2027.",
+      "We first met in November 2024 at our church in Middletown, Delaware, where Chrissy was serving as maid of honor at her sister's wedding. We talked afterward about our experiences in missions and our interest in traveling. Although our conversation was brief, we both remembered each other. Several months later, we unexpectedly reconnected at a young adult gathering at church. As we started talking again, we realized we had already met. This time, we had the opportunity to get to know each other more, and Ethan knew he wanted to pursue her.",
+
+      "Some of our favorite memories have come from the little surprises we've planned for each other, especially on our birthdays. One of our favorites was when Chrissy surprised Ethan with a day exploring Washington, D.C. and a letter telling him she loved him. It was the first time we said those words to each other. Through the beautiful and difficult seasons alike, we've learned to pray for one another, extend grace, and continually encourage each other to grow closer to Christ. We're often in awe of how God has redeemed our individual stories and brought us together. It's a gift we never want to take for granted.",
+
+      "After ten months of dating, Ethan planned a surprise proposal at a special park, with Chrissy's closest friends waiting nearby. Inspired by a memory jar Chrissy had made for him, Ethan secretly added one final memory: the moment he proposed. After reading her a letter and asking her to marry him, their friends came out to celebrate. It was such a special evening, and one we'll always remember. We're looking forward to May 21, 2027, when we get to celebrate with the people we love and begin married life together. We're so thankful for all God has done to bring us here, and excited for what lies ahead.",
     ],
   },
 
   scheduleSection: {
-    kicker: "May 21, 2027",
-    heading: "Schedule & Guest Details",
+    kicker: "Friday, May 21, 2027",
+    heading: "Wedding Day",
     subtitle:
-      "An afternoon of vows followed by an evening of dinner, toasts, and celebration.",
+      "We're looking forward to celebrating with you. Here's what the afternoon and evening will look like.",
   },
 
   schedule: [
     {
       time: "4:30 PM",
       title: "Wedding Ceremony",
-      subtitle: "Exchange of Vows",
+      subtitle: "The Exchange of Vows",
       description:
-        "We gather to exchange our wedding vows surrounded by our closest family and friends.",
+        "Join us as we exchange our vows and begin our marriage, surrounded by family and friends.",
     },
     {
       time: "5:30 PM",
-      title: "Reception",
-      subtitle: "Dinner, Toasts & Dancing",
+      title: "Dinner & Reception",
+      subtitle: "Food, Speeches & Celebration",
       description:
-        "Celebrate with us immediately following the ceremony with refreshments, dinner, heartfelt toasts, and dancing.",
+        "Stay and celebrate with us after the ceremony with dinner, speeches, and time together.",
     },
   ],
 
   dressCode: {
-    title: "Semi-formal",
+    title: "Semi-Formal Attire",
     description:
-      "We kindly invite guests to dress in semi-formal attire—such as cocktail or midi dresses, dressy separates, suits, or a dress shirt and slacks with a jacket. For your comfort outdoors, we recommend block heels, wedges, or dress flats.",
+      "We invite you to dress in semi-formal attire, such as cocktail or midi dresses, dressy separates, suits, or a dress shirt and slacks with a jacket. Since our celebration will be outdoors, we recommend comfortable shoes such as block heels, wedges, or dress flats.",
   },
 
   arrivalInstructions:
-    "Please arrive 15–20 minutes before the ceremony to allow time to find your seat and get settled before we begin.",
+    "Please plan to arrive 15–20 minutes before the ceremony so you have time to find your seat and get settled before we begin.",
 
   location: {
-    kicker: "The Setting",
-    heading: "Wedding Location",
+    kicker: "Where to Join Us",
+    heading: "The Wedding Location",
     venueName: "",
     region: "Airville, Pennsylvania",
     address: "303 E Telegraph Rd, Airville, PA 17302",
     street: "303 E Telegraph Rd",
     cityStateZip: "Airville, PA 17302",
     description:
-      "Our ceremony and reception will be held in the scenic countryside of Airville, Pennsylvania. Directions and map details are provided below to make your travels effortless.",
+      "We'll be celebrating together in the countryside of Airville, Pennsylvania. You'll find the address and directions below. We look forward to seeing you there!",
     mapsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=303+E+Telegraph+Rd,+Airville,+PA+17302",
     embedMapUrl:
@@ -225,27 +226,27 @@ export const wedding: WeddingConfig = {
   },
 
   gallerySection: {
-    kicker: "Captured Moments",
-    heading: "Engagement Gallery",
+    kicker: "Some of Our Favorite Moments",
+    heading: "Our Engagement",
     subtitle:
-      "Swipe or drag horizontally to explore photographs from our proposal and engagement portraits.",
+      "A few moments from our engagement and the day we got to celebrate together.",
   },
 
   rsvpUrl: "https://www.zola.com/wedding/ethanandchrissy2027/rsvp",
 
   rsvpSection: {
-    kicker: "Kindly Respond",
-    heading: "Celebrate With Us",
+    kicker: "Let Us Know",
+    heading: "Will You Join Us?",
     message:
-      "We would be honored to have you with us on May 21, 2027. Please let us know if you will be able to attend by submitting your RSVP below.",
-    buttonLabel: "RSVP Online",
+      "We would love to celebrate with you! Please let us know whether you'll be able to join us on May 21, 2027.",
+    buttonLabel: "Submit Your RSVP",
     pendingNotice:
-      "Formal invitations and online RSVP details will be available shortly. Please check back soon.",
+      "Our RSVP details will be available soon. Please check back for updates.",
   },
 
   footer: {
     thankYouMessage:
-      "Thank you for your love, encouragement, and presence as we begin our marriage together.",
+      "We're so grateful for your love and support. Thank you for being part of our lives and celebrating this special day with us.",
   },
 
   images: {
