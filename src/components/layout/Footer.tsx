@@ -3,6 +3,8 @@ import { wedding } from "@/config/wedding";
 
 export function Footer() {
   const rsvpHref = wedding.rsvpUrl.trim() ? wedding.rsvpUrl.trim() : "#rsvp";
+  const isExternalRsvp =
+    rsvpHref.startsWith("http://") || rsvpHref.startsWith("https://");
 
   return (
     <footer className="w-full bg-cream text-ink py-16 sm:py-20 px-5 sm:px-8 border-t border-taupe/25">
@@ -64,6 +66,8 @@ export function Footer() {
             <li>
               <a
                 href={rsvpHref}
+                target={isExternalRsvp ? "_blank" : undefined}
+                rel={isExternalRsvp ? "noopener noreferrer" : undefined}
                 className="text-[11px] uppercase tracking-[0.24em] text-subtle hover:text-brown transition-colors"
               >
                 RSVP

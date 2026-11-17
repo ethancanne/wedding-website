@@ -231,7 +231,7 @@ export const wedding: WeddingConfig = {
       "Swipe or drag horizontally to explore photographs from our proposal and engagement portraits.",
   },
 
-  rsvpUrl: "",
+  rsvpUrl: "https://www.zola.com/wedding/ethanandchrissy2027/rsvp",
 
   rsvpSection: {
     kicker: "Kindly Respond",
