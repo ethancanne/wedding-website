@@ -23,6 +23,14 @@ export interface NavItem {
   href: `#${string}`;
 }
 
+export interface EngagementGalleryCollection {
+  id: string;
+  kicker: string;
+  heading: string;
+  description: string;
+  photos: WeddingImage[];
+}
+
 export interface WeddingConfig {
   siteUrl: string;
   couple: {
@@ -54,6 +62,7 @@ export interface WeddingConfig {
     kicker: string;
     heading: string;
     leadQuote: string;
+    scriptureReference?: string;
     paragraphs: string[];
   };
   scheduleSection: {
@@ -84,6 +93,10 @@ export interface WeddingConfig {
     kicker: string;
     heading: string;
     subtitle: string;
+  };
+  engagementGalleries: {
+    proposal: EngagementGalleryCollection;
+    woods: EngagementGalleryCollection;
   };
   /**
    * External RSVP URL (e.g., "https://withjoy.com/..." or "https://theknot.com/...").
@@ -166,7 +179,8 @@ export const wedding: WeddingConfig = {
     kicker: "A Little About Us",
     heading: "Our Story",
     leadQuote:
-      "We're so grateful for the way God has brought our stories together and taught us to love one another with His grace.",
+      "“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”",
+    scriptureReference: "Jeremiah 29:11",
     paragraphs: [
       "We first met in November 2024 at our church in Middletown, Delaware, where Chrissy was serving as maid of honor at her sister's wedding. We talked afterward about our experiences in missions and our interest in traveling. Although our conversation was brief, we both remembered each other. Several months later, we unexpectedly reconnected at a young adult gathering at church. As we started talking again, we realized we had already met. This time, we had the opportunity to get to know each other more, and Ethan knew he wanted to pursue her.",
 
@@ -203,7 +217,7 @@ export const wedding: WeddingConfig = {
   dressCode: {
     title: "Semi-Formal Attire",
     description:
-      "We invite you to dress in semi-formal attire, such as cocktail or midi dresses, dressy separates, suits, or a dress shirt and slacks with a jacket. Since our celebration will be outdoors, we recommend comfortable shoes such as block heels, wedges, or dress flats.",
+      "We invite you to celebrate with us in semi-formal attire! For ladies, we recommend cocktail, midi, or maxi dresses. For gentlemen, a suit or dress pants with a button-down shirt and blazer are appropriate. Ties are optional. As our celebration will take place outdoors, we recommend comfortable footwear such as block heels, wedges, or dressy flats.",
   },
 
   arrivalInstructions:
@@ -226,10 +240,151 @@ export const wedding: WeddingConfig = {
   },
 
   gallerySection: {
-    kicker: "Some of Our Favorite Moments",
+    kicker: "THE DAY WE GOT ENGAGED",
     heading: "Our Engagement",
     subtitle:
-      "A few moments from our engagement and the day we got to celebrate together.",
+      "A few photos from the day we got engaged and celebrated with family and friends.",
+  },
+
+  engagementGalleries: {
+    proposal: {
+      id: "our-engagement",
+      kicker: "THE DAY WE GOT ENGAGED",
+      heading: "Our Engagement",
+      description:
+        "A few photos from the day we got engaged and celebrated with family and friends.",
+      photos: [
+        {
+          src: "/images/gallery/photo-10.jpg",
+          alt: "Ethan and Chrissy standing beneath a large blooming tree before the proposal",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-10-1.jpg",
+          alt: "Ethan and Chrissy sitting together on a sunlit hillside beneath a large flowering tree",
+          width: 8192,
+          height: 5464,
+        },
+        {
+          src: "/images/gallery/photo-11.jpg",
+          alt: "Ethan down on one knee proposing to Chrissy on a sunlit hillside",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-12.jpg",
+          alt: "Ethan placing the engagement ring on Chrissy's finger",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-13.jpg",
+          alt: "Ethan and Chrissy embracing on the picnic blanket after getting engaged",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-14.jpg",
+          alt: "Friends and family running across the green hill to celebrate the engagement",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-15.jpg",
+          alt: "Chrissy laughing and holding up her engagement ring with Ethan beside her",
+          width: 2000,
+          height: 1334,
+        },
+        {
+          src: "/images/gallery/photo-16.jpg",
+          alt: "Ethan and Chrissy smiling at golden hour holding a bouquet of white hydrangeas",
+          width: 2000,
+          height: 1334,
+        },
+      ],
+    },
+    woods: {
+      id: "in-the-woods",
+      kicker: "OUR ENGAGEMENT PHOTOS",
+      heading: "In the Woods",
+      description:
+        "A collection of photos from our engagement session in the woods.",
+      photos: [
+        {
+          src: "/images/gallery/photo-1.jpg",
+          alt: "Ethan and Chrissy embracing in golden sunlight overlooking the river and autumn foliage",
+          width: 2000,
+          height: 1125,
+        },
+        {
+          src: "/images/gallery/photo-2.jpg",
+          alt: "Warm portrait of Ethan and Chrissy smiling together in an autumn field",
+          width: 1125,
+          height: 2000,
+        },
+        {
+          src: "/images/gallery/photo-3.jpg",
+          alt: "Ethan lifting Chrissy in his arms among tall forest pines",
+          width: 1125,
+          height: 2000,
+        },
+        {
+          src: "/images/gallery/photo-3-1.jpg",
+          alt: "Close-up of Ethan and Chrissy holding hands in the autumn woods with Chrissy resting her hand on Ethan's arm showing her engagement ring",
+          width: 4608,
+          height: 2592,
+        },
+        {
+          src: "/images/gallery/photo-4.jpg",
+          alt: "Ethan kissing Chrissy on the forehead in a warm autumn field",
+          width: 2000,
+          height: 1125,
+        },
+        {
+          src: "/images/gallery/photo-5.jpg",
+          alt: "Ethan and Chrissy walking hand in hand down a leaf-covered forest path",
+          width: 1125,
+          height: 2000,
+        },
+        {
+          src: "/images/gallery/photo-5-1.JPG",
+          alt: "Ethan and Chrissy laughing and dancing hand in hand along a leaf-covered forest trail",
+          width: 2592,
+          height: 4608,
+        },
+        {
+          src: "/images/gallery/photo-6.jpg",
+          alt: "Ethan and Chrissy gazing at each other in golden evening light",
+          width: 1125,
+          height: 2000,
+        },
+        {
+          src: "/images/gallery/photo-7.jpg",
+          alt: "Ethan carrying Chrissy beside the shimmering river surrounded by fall leaves",
+          width: 2000,
+          height: 1125,
+        },
+        {
+          src: "/images/gallery/photo-8.jpg",
+          alt: "Ethan and Chrissy running across a wide autumn meadow at dusk",
+          width: 2000,
+          height: 1125,
+        },
+        {
+          src: "/images/gallery/photo-8-1.JPG",
+          alt: "Ethan embracing Chrissy from behind in an open autumn meadow as she leans back smiling up at him",
+          width: 4608,
+          height: 2592,
+        },
+        {
+          src: "/images/gallery/photo-9.jpg",
+          alt: "Ethan and Chrissy laughing together in a sunlit pine grove",
+          width: 2000,
+          height: 1125,
+        },
+      ],
+    },
   },
 
   rsvpUrl: "https://www.zola.com/wedding/ethanandchrissy2027/rsvp",

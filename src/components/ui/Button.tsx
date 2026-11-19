@@ -25,13 +25,13 @@ export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-brown text-ivory border border-brown hover:bg-ink hover:border-ink active:bg-ink/90 shadow-xs",
+    "bg-olive text-ivory border border-olive hover:bg-olive-dark hover:border-olive-dark active:bg-olive-dark/95 shadow-[0_2px_12px_rgba(107,112,66,0.16)]",
   outline:
-    "bg-transparent text-ink border border-taupe hover:border-brown hover:bg-brown hover:text-ivory active:bg-brown/90",
+    "bg-transparent text-olive-dark border border-terracotta/70 hover:border-olive hover:bg-olive hover:text-ivory active:bg-olive-dark",
   secondary:
-    "bg-cream text-ink border border-taupe/50 hover:border-brown hover:bg-taupe/15",
+    "bg-cream text-olive-dark border border-terracotta/50 hover:border-olive hover:bg-parchment/60",
   ghost:
-    "bg-transparent text-ink border-b border-taupe hover:border-brown hover:text-brown px-1 py-1 min-h-0",
+    "bg-transparent text-olive-dark border-b border-terracotta/65 hover:border-olive hover:text-olive px-1 py-1 min-h-0",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

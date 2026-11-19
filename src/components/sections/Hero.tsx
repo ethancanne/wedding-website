@@ -10,7 +10,7 @@ export function Hero() {
     <section
       id="top"
       aria-label="Wedding Invitation Hero"
-      className="relative w-full min-h-[100svh] flex flex-col items-center justify-end overflow-hidden bg-ivory border-b border-taupe/25"
+      className="relative w-full min-h-[100svh] flex flex-col items-center justify-end overflow-hidden bg-ivory"
     >
       {/* Full-Bleed Engagement Photograph */}
       <div className="absolute inset-0 w-full h-full">
@@ -19,75 +19,87 @@ export function Hero() {
           alt={wedding.images.hero.alt}
           fill
           priority
-          quality={90}
+          quality={95}
           sizes="100vw"
           containerClassName="w-full h-full"
-          className="object-cover object-[26%_16%] lg:object-[25%_18%]"
+          className="object-cover object-[22%_14%] sm:object-[25%_16%] lg:object-[25%_18%] contrast-[1.07] saturate-[1.16] brightness-[0.98]"
         />
 
-        {/* Subtle luminous ivory wash to keep overall tone bright and airy */}
+        {/* Dreamy radial edge vignette: completely clear across the couple in the center, softly feathered around outer edges */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-ivory/15"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 85% 76% at 45% 38%, rgba(250,245,236,0) 0%, rgba(250,245,236,0) 52%, rgba(250,245,236,0.12) 68%, rgba(250,245,236,0.32) 84%, rgba(250,245,236,0.62) 100%)",
+          }}
         />
 
-        {/* Soft top sunlit fade so transparent navbar remains effortless to read */}
+        {/* Ultra-smooth top sunlit fade so transparent navbar remains effortless to read without any harsh cutoff */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-40 bg-gradient-to-b from-ivory/85 via-ivory/40 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-40"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(250,245,236,0.74) 0%, rgba(250,245,236,0.50) 25%, rgba(250,245,236,0.26) 52%, rgba(250,245,236,0.09) 76%, rgba(250,245,236,0.02) 90%, rgba(250,245,236,0) 100%)",
+          }}
         />
 
-        {/* Soft bottom sunlit ivory veil rising cleanly beneath the couple's faces */}
+        {/* Ultra-smooth multi-stop bottom warm ivory veil that feathers gradually with zero abrupt cutoff line */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] sm:h-[44%] lg:h-[42%] bg-gradient-to-t from-ivory from-15% via-ivory/85 via-60% to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] sm:h-[58%] lg:h-[56%]"
+          style={{
+            background:
+              "linear-gradient(to top, #FAF5EC 0%, rgba(250,245,236,0.98) 12%, rgba(250,245,236,0.92) 24%, rgba(250,245,236,0.80) 36%, rgba(250,245,236,0.62) 48%, rgba(250,245,236,0.42) 60%, rgba(250,245,236,0.23) 72%, rgba(250,245,236,0.10) 84%, rgba(250,245,236,0.03) 93%, rgba(250,245,236,0) 100%)",
+          }}
         />
       </div>
 
-      {/* Minimal Centered Overlay near the Bottom: Names, Date, and Buttons */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-end px-4 sm:px-8 pt-24 pb-8 sm:pb-10 lg:pb-12">
-        <div className="relative flex flex-col items-center text-center px-1 py-2 sm:px-8 sm:py-3 max-w-4xl w-full">
-          {/* Couple's Full Calligraphic Names (Horizontal Lockup) */}
-          <h1 className="flex flex-row items-center justify-center gap-3 min-[375px]:gap-4 sm:gap-7 md:gap-9 w-full">
+      {/* Centered Invitation Lockup near the Bottom: Names, Date, and Buttons */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-end px-4 sm:px-8 pt-24 pb-7 sm:pb-10 lg:pb-11">
+        <div className="relative flex flex-col items-center text-center px-2 py-2 sm:px-8 sm:py-3 max-w-4xl w-full">
+          {/* Couple's Full Calligraphic Names (Horizontal Lockup matching Invitation) */}
+          <h1 className="relative flex flex-row items-center justify-center gap-3 min-[375px]:gap-4 sm:gap-7 md:gap-9 w-full">
             <span className="flex flex-col items-center">
-              <span className="font-script text-[36px] min-[375px]:text-[42px] sm:text-6xl lg:text-[68px] xl:text-[76px] text-ink leading-[0.95] tracking-normal whitespace-nowrap">
+              <span className="font-script text-[40px] min-[375px]:text-[46px] sm:text-[64px] lg:text-[74px] xl:text-[82px] text-olive leading-[1.05] tracking-normal whitespace-nowrap pb-1 drop-shadow-[0_1px_8px_rgba(250,245,236,0.9)]">
                 {wedding.couple.firstName}
               </span>
-              <span className="font-serif italic text-[15px] min-[375px]:text-[17px] sm:text-xl lg:text-2xl text-ink/90 tracking-[0.05em] -mt-0.5 whitespace-nowrap">
+              <span className="font-serif italic font-semibold text-[15px] min-[375px]:text-[17px] sm:text-xl lg:text-2xl text-terracotta-dark tracking-[0.06em] -mt-1.5 sm:-mt-2 whitespace-nowrap drop-shadow-[0_1px_4px_rgba(250,245,236,0.95)]">
                 {wedding.couple.firstLastName}
               </span>
             </span>
 
-            {/* Center Ampersand Accent */}
+            {/* Center Ampersand & Decorative Terracotta Lines */}
             <span
               aria-hidden="true"
-              className="flex items-center justify-center gap-2.5 sm:gap-3 shrink-0"
+              className="flex items-center justify-center gap-2 sm:gap-3 shrink-0"
             >
-              <span className="hidden sm:block h-px w-5 lg:w-7 bg-taupe/80" />
-              <span className="font-serif italic text-xl min-[375px]:text-2xl sm:text-3xl lg:text-[34px] text-brown leading-none">
+              <span className="block h-[1.25px] w-4 min-[375px]:w-5 sm:w-7 lg:w-9 bg-terracotta-dark/80" />
+              <span className="font-serif italic font-medium text-xl min-[375px]:text-2xl sm:text-3xl lg:text-[34px] text-terracotta-dark leading-none drop-shadow-[0_1px_4px_rgba(250,245,236,0.95)]">
                 &amp;
               </span>
-              <span className="hidden sm:block h-px w-5 lg:w-7 bg-taupe/80" />
+              <span className="block h-[1.25px] w-4 min-[375px]:w-5 sm:w-7 lg:w-9 bg-terracotta-dark/80" />
             </span>
             <span className="sr-only">and</span>
 
             <span className="flex flex-col items-center">
-              <span className="font-script text-[36px] min-[375px]:text-[42px] sm:text-6xl lg:text-[68px] xl:text-[76px] text-ink leading-[0.95] tracking-normal whitespace-nowrap">
+              <span className="font-script text-[40px] min-[375px]:text-[46px] sm:text-[64px] lg:text-[74px] xl:text-[82px] text-olive leading-[1.05] tracking-normal whitespace-nowrap pb-1 drop-shadow-[0_1px_8px_rgba(250,245,236,0.9)]">
                 {wedding.couple.partnerName}
               </span>
-              <span className="font-serif italic text-[15px] min-[375px]:text-[17px] sm:text-xl lg:text-2xl text-ink/90 tracking-[0.05em] -mt-0.5 whitespace-nowrap">
+              <span className="font-serif italic font-semibold text-[15px] min-[375px]:text-[17px] sm:text-xl lg:text-2xl text-terracotta-dark tracking-[0.06em] -mt-1 sm:-mt-1.5 -translate-x-2 sm:-translate-x-3 whitespace-nowrap drop-shadow-[0_1px_4px_rgba(250,245,236,0.95)]">
                 {wedding.couple.partnerLastName}
               </span>
             </span>
           </h1>
 
           {/* Wedding Date */}
-          <p className="mt-4 sm:mt-5 font-serif text-xl sm:text-2xl lg:text-[26px] font-medium tracking-[0.08em] text-ink">
+          <p className="relative mt-3.5 sm:mt-4 font-serif text-xl sm:text-2xl lg:text-[26px] font-semibold tracking-[0.08em] text-olive-dark">
             <time dateTime={wedding.date}>{wedding.displayDate}</time>
           </p>
 
           {/* Primary & Secondary Buttons */}
-          <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full max-w-xs sm:max-w-md">
+          <div className="relative mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 w-full max-w-xs sm:max-w-md">
             <Button
               href={rsvpHref}
               variant="primary"
@@ -100,7 +112,7 @@ export function Hero() {
               href="#schedule"
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto min-w-[176px] bg-ivory/95 border-brown/60"
+              className="w-full sm:w-auto min-w-[176px] bg-ivory/95 border-terracotta/75"
             >
               Wedding Details
             </Button>

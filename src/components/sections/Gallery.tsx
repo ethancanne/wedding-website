@@ -1,11 +1,24 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { wedding } from "@/config/wedding";
+import { wedding, type EngagementGalleryCollection } from "@/config/wedding";
 import { WeddingPhoto } from "@/components/ui/WeddingPhoto";
+import {
+  OliveLeafSprig,
+  WatercolorBotanicalBranch,
+  WatercolorSunflowerAccent,
+} from "@/components/ui/BotanicalAccents";
 
-export function Gallery() {
-  const photos = wedding.images.gallery;
+interface GalleryCarouselSectionProps {
+  collection: EngagementGalleryCollection;
+  cardClassName?: string;
+}
+
+function GalleryCarouselSection({
+  collection,
+  cardClassName = "bg-ivory",
+}: GalleryCarouselSectionProps) {
+  const { id, kicker, heading, description, photos } = collection;
   const total = photos.length;
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,7 +32,6 @@ export function Gallery() {
   const isProgrammaticScroll = useRef(false);
   const programmaticTimer = useRef<number | null>(null);
 
-  // Mouse drag state
   const dragState = useRef({
     isDown: false,
     startX: 0,
@@ -28,7 +40,6 @@ export function Gallery() {
     moved: false,
   });
 
-  // Scroll main track to a specific slide index without scrolling the vertical page
   const scrollToSlide = useCallback(
     (index: number, behavior: ScrollBehavior = "smooth") => {
       if (total === 0) return;
@@ -67,7 +78,6 @@ export function Gallery() {
     };
   }, []);
 
-  // Keep active thumbnail centered horizontally inside the thumbnail strip
   useEffect(() => {
     const thumbTrack = thumbTrackRef.current;
     const activeThumb = thumbRefs.current[activeIndex];
@@ -83,14 +93,9 @@ export function Gallery() {
     });
   }, [activeIndex]);
 
-  // Update activeIndex on user scroll based on which slide is closest to the track center
   const handleTrackScroll = useCallback(() => {
     const track = trackRef.current;
-    if (
-      !track ||
-      dragState.current.isDown ||
-      isProgrammaticScroll.current
-    ) {
+    if (!track || dragState.current.isDown || isProgrammaticScroll.current) {
       return;
     }
 
@@ -125,7 +130,6 @@ export function Gallery() {
     setActiveIndex(closestIdx);
   }, [total]);
 
-  // Desktop mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const track = trackRef.current;
     if (!track || e.button !== 0) return;
@@ -180,7 +184,6 @@ export function Gallery() {
     }, 80);
   }, [scrollToSlide]);
 
-  // Keyboard navigation when gallery is focused
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -201,29 +204,49 @@ export function Gallery() {
     return null;
   }
 
+  const headingId = `${id}-heading`;
+
   return (
-    <section
-      id="gallery"
-      aria-labelledby="gallery-heading"
+    <div
+      role="region"
+      aria-labelledby={headingId}
       aria-roledescription="carousel"
       onKeyDown={handleKeyDown}
-      className="relative w-full bg-cream py-20 sm:py-28 lg:py-32 border-b border-taupe/25 scroll-mt-16 sm:scroll-mt-20 overflow-hidden"
+      className="relative w-full"
     >
-      {/* Section Header */}
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
+      {/* Visual Introduction & Controls */}
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-13">
           <div className="text-center md:text-left">
-            <p className="text-[11px] uppercase tracking-[0.32em] text-subtle mb-3">
-              {wedding.gallerySection.kicker}
-            </p>
+            <div className="inline-flex items-center justify-center md:justify-start gap-2.5 mb-2.5">
+              <p className="text-[11px] uppercase tracking-[0.32em] text-terracotta-dark font-medium">
+                {kicker}
+              </p>
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-block h-px w-8 bg-terracotta/50"
+              />
+            </div>
+
             <h2
-              id="gallery-heading"
-              className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-normal text-ink tracking-tight"
+              id={headingId}
+              className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-normal text-olive tracking-tight"
             >
-              {wedding.gallerySection.heading}
+              {heading}
             </h2>
-            <p className="mt-3 font-serif italic text-lg sm:text-xl text-muted max-w-xl">
-              {wedding.gallerySection.subtitle}
+
+            {/* Delicate Terracotta & Ampersand / Leaf Divider on Mobile, Left Rule on Desktop */}
+            <div
+              aria-hidden="true"
+              className="mt-3.5 mb-3.5 flex items-center justify-center md:justify-start gap-3"
+            >
+              <span className="h-px w-10 bg-terracotta/55" />
+              <OliveLeafSprig className="w-9 h-4 opacity-80" />
+              <span className="h-px w-10 bg-terracotta/55" />
+            </div>
+
+            <p className="font-serif italic text-lg sm:text-xl text-muted max-w-xl leading-relaxed mx-auto md:mx-0">
+              {description}
             </p>
           </div>
 
@@ -232,10 +255,12 @@ export function Gallery() {
             <div
               aria-live="polite"
               aria-atomic="true"
-              className="font-serif text-lg sm:text-xl text-ink tabular-nums tracking-widest"
+              className="font-serif text-lg sm:text-xl text-olive-dark tabular-nums tracking-widest"
             >
-              <span>{String(activeIndex + 1).padStart(2, "0")}</span>
-              <span className="mx-2 text-taupe">/</span>
+              <span className="font-medium">
+                {String(activeIndex + 1).padStart(2, "0")}
+              </span>
+              <span className="mx-2 text-terracotta">/</span>
               <span className="text-subtle">
                 {String(total).padStart(2, "0")}
               </span>
@@ -245,8 +270,8 @@ export function Gallery() {
               <button
                 type="button"
                 onClick={() => scrollToSlide(activeIndexRef.current - 1)}
-                aria-label="Previous photograph"
-                className="inline-flex h-11 w-11 items-center justify-center border border-taupe/60 bg-ivory text-ink hover:border-brown hover:bg-brown hover:text-ivory transition-colors duration-200 cursor-pointer"
+                aria-label={`Previous photograph in ${heading}`}
+                className="inline-flex h-11 w-11 items-center justify-center border border-terracotta/65 bg-ivory text-olive-dark hover:border-olive hover:bg-olive hover:text-ivory transition-colors duration-200 cursor-pointer"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -267,8 +292,8 @@ export function Gallery() {
               <button
                 type="button"
                 onClick={() => scrollToSlide(activeIndexRef.current + 1)}
-                aria-label="Next photograph"
-                className="inline-flex h-11 w-11 items-center justify-center border border-taupe/60 bg-ivory text-ink hover:border-brown hover:bg-brown hover:text-ivory transition-colors duration-200 cursor-pointer"
+                aria-label={`Next photograph in ${heading}`}
+                className="inline-flex h-11 w-11 items-center justify-center border border-terracotta/65 bg-ivory text-olive-dark hover:border-olive hover:bg-olive hover:text-ivory transition-colors duration-200 cursor-pointer"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -295,7 +320,7 @@ export function Gallery() {
         <div
           ref={trackRef}
           role="region"
-          aria-label="Engagement photographs horizontal gallery"
+          aria-label={`${heading} photographs horizontal gallery`}
           tabIndex={0}
           onScroll={handleTrackScroll}
           onDragStart={(e) => e.preventDefault()}
@@ -324,14 +349,17 @@ export function Gallery() {
                 aria-roledescription="slide"
                 aria-label={`Photograph ${index + 1} of ${total}: ${photo.alt}`}
                 onClick={() => {
-                  if (!dragState.current.moved && index !== activeIndexRef.current) {
+                  if (
+                    !dragState.current.moved &&
+                    index !== activeIndexRef.current
+                  ) {
                     scrollToSlide(index);
                   }
                 }}
-                className={`snap-center shrink-0 bg-ivory p-2.5 sm:p-4 border transition-all duration-500 ${
+                className={`snap-center shrink-0 ${cardClassName} p-2.5 sm:p-4 border transition-all duration-500 ${
                   isActive
-                    ? "border-brown/60 shadow-[0_12px_36px_rgba(112,83,63,0.08)] opacity-100 scale-100"
-                    : "border-taupe/30 opacity-75 hover:opacity-95 scale-[0.98]"
+                    ? "border-terracotta/70 shadow-[0_12px_36px_rgba(107,112,66,0.09)] opacity-100 scale-100"
+                    : "border-terracotta/30 opacity-75 hover:opacity-95 scale-[0.98]"
                 } ${
                   isPortrait
                     ? "w-[74vw] max-w-[310px] sm:w-[320px] md:w-[350px] lg:w-[380px]"
@@ -349,7 +377,7 @@ export function Gallery() {
                       ? "(max-width: 640px) 75vw, 380px"
                       : "(max-width: 640px) 86vw, (max-width: 1024px) 640px, 740px"
                   }
-                  containerClassName="h-[340px] sm:h-[420px] md:h-[470px] lg:h-[520px] w-full"
+                  containerClassName="h-[320px] sm:h-[420px] md:h-[470px] lg:h-[520px] w-full"
                   className="w-full h-full object-cover"
                 />
               </figure>
@@ -360,30 +388,29 @@ export function Gallery() {
 
       {/* Thumbnail Strip */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 mt-7 sm:mt-9">
-        {/* Thumbnail Navigation Strip */}
         <div
           ref={thumbTrackRef}
           role="tablist"
-          aria-label="Choose a photograph"
+          aria-label={`Choose a photograph in ${heading}`}
           className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar py-2 px-1"
         >
           {photos.map((photo, idx) => {
             const isSelected = idx === activeIndex;
             return (
               <button
-                key={`thumb-${photo.src}`}
+                key={`thumb-${id}-${photo.src}`}
                 ref={(el) => {
                   thumbRefs.current[idx] = el;
                 }}
                 type="button"
                 role="tab"
                 aria-selected={isSelected}
-                aria-label={`View photograph ${idx + 1}: ${photo.alt}`}
+                aria-label={`View photograph ${idx + 1} in ${heading}: ${photo.alt}`}
                 onClick={() => scrollToSlide(idx)}
                 className={`relative shrink-0 w-16 h-12 sm:w-20 sm:h-14 overflow-hidden border transition-all duration-300 cursor-pointer ${
                   isSelected
-                    ? "border-brown ring-2 ring-brown/30 opacity-100 scale-105"
-                    : "border-taupe/35 opacity-55 hover:opacity-90"
+                    ? "border-olive ring-2 ring-terracotta/40 opacity-100 scale-105"
+                    : "border-terracotta/35 opacity-55 hover:opacity-90"
                 }`}
               >
                 <WeddingPhoto
@@ -401,6 +428,44 @@ export function Gallery() {
           })}
         </div>
       </div>
+    </div>
+  );
+}
+
+export function Gallery() {
+  return (
+    <section
+      id="gallery"
+      aria-label="Engagement Photo Galleries"
+      className="relative w-full bg-gradient-to-b from-cream via-ivory to-cream py-20 sm:py-28 lg:py-32 border-b border-terracotta/25 scroll-mt-16 sm:scroll-mt-20 overflow-hidden"
+    >
+      {/* Subtle Ambient Watercolor Botanical Accents */}
+      <WatercolorBotanicalBranch className="hidden xl:block absolute top-10 right-6 w-36 h-44 opacity-30 rotate-12" />
+      <WatercolorSunflowerAccent className="hidden xl:block absolute bottom-10 left-6 w-36 h-36 opacity-30" />
+
+      {/* Section 1 – The Actual Proposal ("Our Engagement") */}
+      <GalleryCarouselSection
+        collection={wedding.engagementGalleries.proposal}
+        cardClassName="bg-ivory"
+      />
+
+      {/* Seamless Editorial Transition Between the Two Galleries */}
+      <div
+        aria-hidden="true"
+        className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 my-14 sm:my-18 lg:my-22 flex flex-col items-center justify-center"
+      >
+        <div className="w-full max-w-md flex items-center justify-center gap-4">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-terracotta/40 to-terracotta/55" />
+          <OliveLeafSprig className="w-11 h-5 opacity-80" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-terracotta/40 to-terracotta/55" />
+        </div>
+      </div>
+
+      {/* Section 2 – Professional Woodland Photoshoot ("In the Woods") */}
+      <GalleryCarouselSection
+        collection={wedding.engagementGalleries.woods}
+        cardClassName="bg-ivory"
+      />
     </section>
   );
 }

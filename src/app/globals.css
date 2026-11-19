@@ -1,25 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --color-ivory: #F8F5EF;
-  --color-cream: #F2EEE7;
-  --color-taupe: #9A8875;
-  --color-brown: #70533F;
-  --color-ink: #111111;
-  --color-muted: #5C544B;
-  --color-subtle: #786D61;
+  --color-ivory: #FAF5EC;
+  --color-cream: #F3EAD8;
+  --color-parchment: #E9DEC8;
+  --color-olive: #6B7042;
+  --color-olive-dark: #525731;
+  --color-sage: #848C64;
+  --color-terracotta: #C28766;
+  --color-terracotta-dark: #A66E4E;
+  --color-peach: #DFB79B;
+  --color-gold: #D9A14A;
+  --color-taupe: #C9B29B;
+  --color-brown: #6B7042;
+  --color-ink: #2E3023;
+  --color-muted: #575544;
+  --color-subtle: #7A6B58;
 }
 
 @theme inline {
-  --color-ivory: #F8F5EF;
-  --color-cream: #F2EEE7;
-  --color-taupe: #9A8875;
-  --color-brown: #70533F;
-  --color-ink: #111111;
-  --color-muted: #5C544B;
-  --color-subtle: #786D61;
+  --color-ivory: #FAF5EC;
+  --color-cream: #F3EAD8;
+  --color-parchment: #E9DEC8;
+  --color-olive: #6B7042;
+  --color-olive-dark: #525731;
+  --color-sage: #848C64;
+  --color-terracotta: #C28766;
+  --color-terracotta-dark: #A66E4E;
+  --color-peach: #DFB79B;
+  --color-gold: #D9A14A;
+  --color-taupe: #C9B29B;
+  --color-brown: #6B7042;
+  --color-ink: #2E3023;
+  --color-muted: #575544;
+  --color-subtle: #7A6B58;
 
-  --font-script: var(--font-great-vibes), "Snell Roundhand", "Apple Chancery", cursive;
+  --font-script: var(--font-callme-script), "Snell Roundhand", "Apple Chancery", cursive;
   --font-serif: var(--font-cormorant), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-montserrat), -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -39,14 +55,36 @@ body {
 }
 
 ::selection {
-  background-color: rgba(154, 136, 117, 0.25);
-  color: #111111;
+  background-color: rgba(194, 135, 102, 0.22);
+  color: #2E3023;
 }
 
 /* Accessible keyboard focus indicator */
 :focus-visible {
-  outline: 2px solid var(--color-brown);
+  outline: 2px solid var(--color-olive);
   outline-offset: 3px;
+}
+
+/* Subtle warm stationery paper texture effect */
+.stationery-ivory {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(233, 222, 200, 0.35), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 90%, rgba(223, 183, 155, 0.14), transparent 70%);
+}
+
+.stationery-cream {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 85% 15%, rgba(250, 245, 236, 0.55), transparent 70%),
+    radial-gradient(ellipse 75% 55% at 15% 85%, rgba(223, 183, 155, 0.18), transparent 70%);
+}
+
+.stationery-parchment {
+  background-color: #EFE5D2;
+  background-image:
+    radial-gradient(ellipse 75% 65% at 50% 0%, rgba(250, 245, 236, 0.5), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 90%, rgba(194, 135, 102, 0.1), transparent 70%);
 }
 
 /* Hide native scrollbar on horizontal gallery track while preserving scrollability */

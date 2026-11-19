@@ -43,11 +43,13 @@ export function WeddingPhoto({
         aria-label={alt}
         className={`relative flex flex-col items-center justify-center bg-cream border border-taupe/35 p-6 text-center overflow-hidden ${containerClassName}`}
       >
-        <div className="border border-taupe/30 px-6 py-8 w-full h-full flex flex-col items-center justify-center gap-3">
-          <span className="font-script text-3xl text-brown/80">
-            {wedding.couple.monogram}
+        <div className="border border-terracotta/30 px-6 py-8 w-full h-full flex flex-col items-center justify-center gap-3">
+          <span className="font-script text-3xl text-olive">
+            {wedding.couple.firstName[0]}{" "}
+            <span className="font-serif italic text-2xl text-terracotta">&amp;</span>{" "}
+            {wedding.couple.partnerName[0]}
           </span>
-          <div className="w-10 h-px bg-taupe/50" aria-hidden="true" />
+          <div className="w-10 h-px bg-terracotta/50" aria-hidden="true" />
           <p className="text-[11px] uppercase tracking-[0.22em] text-subtle max-w-xs leading-relaxed">
             {alt}
           </p>

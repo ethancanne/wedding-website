@@ -99,7 +99,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         isScrolled || mobileMenuOpen
-          ? "bg-ivory/95 backdrop-blur-md border-b border-taupe/30 shadow-[0_2px_20px_rgba(112,83,63,0.04)]"
+          ? "bg-ivory/95 backdrop-blur-md border-b border-terracotta/25 shadow-[0_2px_20px_rgba(107,112,66,0.06)]"
           : "bg-transparent border-b border-transparent shadow-none"
       }`}
     >
@@ -117,13 +117,13 @@ export function Navbar() {
           className="group inline-flex shrink-0 whitespace-nowrap items-baseline gap-2 py-1 focus:outline-none"
           aria-label={`${wedding.couple.fullNames} — Return to top`}
         >
-          <span className="font-script text-2xl sm:text-[28px] text-ink tracking-wide transition-colors group-hover:text-brown">
+          <span className="font-script text-2xl sm:text-[28px] text-olive tracking-wide transition-colors group-hover:text-olive-dark">
             {wedding.couple.firstName}
           </span>
-          <span className="font-serif italic text-base sm:text-lg text-taupe">
+          <span className="font-serif italic text-base sm:text-lg text-terracotta">
             &amp;
           </span>
-          <span className="font-script text-2xl sm:text-[28px] text-ink tracking-wide transition-colors group-hover:text-brown">
+          <span className="font-script text-2xl sm:text-[28px] text-olive tracking-wide transition-colors group-hover:text-olive-dark">
             {wedding.couple.partnerName}
           </span>
         </a>
@@ -140,14 +140,14 @@ export function Navbar() {
                     aria-current={isActive ? "location" : undefined}
                     className={`relative whitespace-nowrap py-2 text-[11px] uppercase md:tracking-[0.18em] lg:tracking-[0.25em] transition-colors duration-200 ${
                       isActive
-                        ? "text-brown font-medium"
-                        : "text-ink/85 hover:text-brown"
+                        ? "text-olive-dark font-medium"
+                        : "text-ink/85 hover:text-olive"
                     }`}
                   >
                     {item.label}
                     <span
                       aria-hidden="true"
-                      className={`absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-brown transition-transform duration-300 origin-center ${
+                      className={`absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-terracotta transition-transform duration-300 origin-center ${
                         isActive ? "scale-x-100" : "scale-x-0"
                       }`}
                     />
@@ -157,7 +157,7 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="h-4 w-px bg-taupe/40 shrink-0" aria-hidden="true" />
+          <div className="h-4 w-px bg-terracotta/40 shrink-0" aria-hidden="true" />
 
           <Button
             href={rsvpTarget}
@@ -166,7 +166,7 @@ export function Navbar() {
             className={
               isScrolled || mobileMenuOpen
                 ? "shrink-0"
-                : "shrink-0 bg-ivory/90 border-brown/50"
+                : "shrink-0 bg-ivory/90 border-terracotta/70"
             }
           >
             RSVP
@@ -180,7 +180,7 @@ export function Navbar() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation-menu"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 text-ink hover:text-brown transition-colors cursor-pointer"
+          className="md:hidden inline-flex items-center justify-center w-11 h-11 text-olive-dark hover:text-olive transition-colors cursor-pointer"
         >
           <span className="sr-only">
             {mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -209,14 +209,14 @@ export function Navbar() {
       <div
         id="mobile-navigation-menu"
         aria-hidden={!mobileMenuOpen}
-        className={`md:hidden absolute top-full left-0 right-0 z-50 overflow-hidden transition-all duration-300 ease-in-out bg-ivory/98 backdrop-blur-md border-b border-taupe/35 shadow-[0_12px_30px_rgba(17,17,17,0.08)] ${
+        className={`md:hidden absolute top-full left-0 right-0 z-50 overflow-hidden transition-all duration-300 ease-in-out bg-ivory/98 backdrop-blur-md border-b border-terracotta/30 shadow-[0_12px_30px_rgba(46,48,35,0.08)] ${
           mobileMenuOpen
             ? "max-h-[420px] opacity-100 visible"
             : "max-h-0 opacity-0 invisible border-b-0 pointer-events-none"
         }`}
       >
         <div className="px-6 pt-3 pb-7 flex flex-col items-center text-center">
-          <div className="w-12 h-px bg-taupe/40 mb-4" aria-hidden="true" />
+          <div className="w-12 h-px bg-terracotta/45 mb-4" aria-hidden="true" />
           <ul className="w-full flex flex-col gap-1">
             {wedding.navigation.map((item) => {
               const isActive = activeSection === item.href;
@@ -228,8 +228,8 @@ export function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block w-full py-3.5 text-xs uppercase tracking-[0.26em] transition-colors ${
                       isActive
-                        ? "text-brown font-medium"
-                        : "text-ink/85 hover:text-brown"
+                        ? "text-olive-dark font-medium"
+                        : "text-ink/85 hover:text-olive"
                     }`}
                   >
                     {item.label}
@@ -239,7 +239,7 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="w-full pt-4 mt-2 border-t border-taupe/25 flex flex-col items-center gap-3">
+          <div className="w-full pt-4 mt-2 border-t border-terracotta/25 flex flex-col items-center gap-3">
             <Button
               href={rsvpTarget}
               variant="primary"
@@ -250,7 +250,7 @@ export function Navbar() {
             >
               RSVP
             </Button>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-subtle">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-terracotta-dark">
               {wedding.displayDate} &bull; {wedding.location.region}
             </p>
           </div>

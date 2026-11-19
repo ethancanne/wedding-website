@@ -1,13 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Great_Vibes, Cormorant_Garamond, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import { wedding } from "@/config/wedding";
 import "./globals.css";
 
-const greatVibes = Great_Vibes({
-  weight: "400",
-  subsets: ["latin"],
+const callmeScript = localFont({
+  src: [
+    {
+      path: "../../public/callme_script/Callme Script.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/callme_script/Callme Script.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  variable: "--font-great-vibes",
+  variable: "--font-callme-script",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -70,7 +81,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F8F5EF",
+  themeColor: "#FAF5EC",
   width: "device-width",
   initialScale: 1,
 };
@@ -83,12 +94,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${greatVibes.variable} ${cormorant.variable} ${montserrat.variable}`}
+      className={`${callmeScript.variable} ${cormorant.variable} ${montserrat.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-ivory text-ink antialiased selection:bg-taupe/25">
+      <body className="min-h-screen flex flex-col bg-ivory text-ink antialiased selection:bg-terracotta/20">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ivory focus:text-ink focus:px-4 focus:py-2.5 focus:border focus:border-brown focus:text-xs focus:tracking-[0.2em] focus:uppercase focus:shadow-md"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ivory focus:text-olive-dark focus:px-4 focus:py-2.5 focus:border focus:border-olive focus:text-xs focus:tracking-[0.2em] focus:uppercase focus:shadow-md"
         >
           Skip to main content
         </a>

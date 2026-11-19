@@ -72,17 +72,18 @@ export function Countdown() {
   return (
     <section
       aria-label="Wedding Countdown"
-      className="relative w-full bg-cream border-b border-taupe/25 py-14 sm:py-20 px-5 sm:px-8"
+      className="relative w-full bg-gradient-to-b from-ivory via-cream/75 to-cream border-b border-terracotta/25 pt-10 pb-14 sm:pt-14 sm:pb-20 px-5 sm:px-8"
     >
       <div className="mx-auto max-w-4xl text-center">
         {/* Subtle Kicker */}
-        <p className="text-[11px] uppercase tracking-[0.3em] text-subtle mb-3">
-          {wedding.dayOfWeek}, {wedding.displayDate} &bull; {wedding.displayTime}
+        <p className="text-[11px] uppercase tracking-[0.3em] text-terracotta-dark mb-3">
+          {wedding.dayOfWeek}, {wedding.displayDate}{" "}
+          <span className="text-terracotta mx-1">&bull;</span> {wedding.displayTime}
         </p>
 
         {mounted && timeLeft.isPast ? (
           <div className="py-4">
-            <h2 className="font-script text-4xl sm:text-5xl text-ink mb-3">
+            <h2 className="font-script text-4xl sm:text-5xl text-olive mb-3">
               {wedding.countdown.completedHeading}
             </h2>
             <p className="font-serif italic text-lg sm:text-xl text-muted max-w-xl mx-auto">
@@ -91,7 +92,7 @@ export function Countdown() {
           </div>
         ) : (
           <>
-            <h2 className="font-serif italic text-2xl sm:text-3xl text-ink/90 mb-8 sm:mb-10">
+            <h2 className="font-serif italic text-2xl sm:text-3xl text-olive mb-8 sm:mb-10">
               {wedding.countdown.heading}
             </h2>
 
@@ -99,7 +100,7 @@ export function Countdown() {
               role="timer"
               aria-live="off"
               aria-atomic="true"
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-0 max-w-2xl mx-auto border border-taupe/35 bg-ivory/75 py-6 sm:py-8 px-4 sm:px-2"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-0 max-w-2xl mx-auto border border-terracotta/35 bg-ivory/85 shadow-[0_4px_24px_rgba(107,112,66,0.05)] py-6 sm:py-8 px-4 sm:px-2"
             >
               {units.map((unit, idx) => {
                 const displayNumber = !mounted
@@ -113,14 +114,14 @@ export function Countdown() {
                     key={unit.label}
                     className={`flex flex-col items-center justify-center px-3 py-2 ${
                       idx < units.length - 1
-                        ? "sm:border-r sm:border-taupe/30"
+                        ? "sm:border-r sm:border-terracotta/30"
                         : ""
                     }`}
                   >
-                    <span className="font-serif text-4xl sm:text-5xl md:text-[54px] font-normal text-ink tabular-nums leading-none tracking-tight">
+                    <span className="font-serif text-4xl sm:text-5xl md:text-[54px] font-normal text-olive tabular-nums leading-none tracking-tight">
                       {displayNumber}
                     </span>
-                    <span className="mt-2.5 text-[10px] sm:text-[11px] uppercase tracking-[0.26em] text-subtle">
+                    <span className="mt-2.5 text-[10px] sm:text-[11px] uppercase tracking-[0.26em] text-terracotta-dark">
                       {unit.label}
                     </span>
                   </div>
