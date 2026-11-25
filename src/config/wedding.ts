@@ -406,11 +406,11 @@ export const wedding: WeddingConfig = {
 
   images: {
     hero: {
-      src: "/images/hero/engagement.jpg",
-      alt: "Ethan and Chrissy embracing in warm golden-hour sunlight beside an autumn river",
-      width: 2400,
-      height: 1350,
-      objectPosition: "28% 35%",
+      src: "/images/hero/hero.jpg",
+      alt: "Ethan and Chrissy smiling at golden hour holding a bouquet of white hydrangeas",
+      width: 3840,
+      height: 2160,
+      objectPosition: "48% 12%",
     },
 
     story: [
@@ -567,8 +567,8 @@ export const wedding: WeddingConfig = {
       {
         src: "/images/gallery/photo-16.jpg",
         alt: "Ethan and Chrissy smiling at golden hour holding a bouquet of white hydrangeas",
-        width: 2000,
-        height: 1334,
+        width: 8192,
+        height: 5464,
       },
     ],
 

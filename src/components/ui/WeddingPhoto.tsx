@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { wedding } from "@/config/wedding";
 
@@ -39,18 +39,20 @@ export function WeddingPhoto({
   if (hasError || !src) {
     return (
       <div
-        role="img"
+        role='img'
         aria-label={alt}
         className={`relative flex flex-col items-center justify-center bg-cream border border-taupe/35 p-6 text-center overflow-hidden ${containerClassName}`}
       >
-        <div className="border border-terracotta/30 px-6 py-8 w-full h-full flex flex-col items-center justify-center gap-3">
-          <span className="font-script text-3xl text-olive">
+        <div className='border border-terracotta/30 px-6 py-8 w-full h-full flex flex-col items-center justify-center gap-3'>
+          <span className='font-script text-3xl text-olive'>
             {wedding.couple.firstName[0]}{" "}
-            <span className="font-serif italic text-2xl text-terracotta">&amp;</span>{" "}
+            <span className='font-serif italic text-2xl text-terracotta'>
+              &amp;
+            </span>{" "}
             {wedding.couple.partnerName[0]}
           </span>
-          <div className="w-10 h-px bg-terracotta/50" aria-hidden="true" />
-          <p className="text-[11px] uppercase tracking-[0.22em] text-subtle max-w-xs leading-relaxed">
+          <div className='w-10 h-px bg-terracotta/50' aria-hidden='true' />
+          <p className='text-[11px] uppercase tracking-[0.22em] text-subtle max-w-xs leading-relaxed'>
             {alt}
           </p>
         </div>
@@ -59,14 +61,12 @@ export function WeddingPhoto({
   }
 
   return (
-    <div
-      className={`relative overflow-hidden bg-cream ${containerClassName}`}
-    >
+    <div className={`relative overflow-hidden bg-cream ${containerClassName}`}>
       {/* Subtle stationery shimmer while loading */}
       {!isLoaded && (
         <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-cream via-ivory to-taupe/15 animate-pulse"
+          aria-hidden='true'
+          className='absolute inset-0 bg-gradient-to-br from-cream via-ivory to-taupe/15 animate-pulse'
         />
       )}
 

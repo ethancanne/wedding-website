@@ -13,16 +13,16 @@ export function Hero() {
       className="relative w-full min-h-[100svh] flex flex-col items-center justify-end overflow-hidden bg-ivory"
     >
       {/* Full-Bleed Engagement Photograph */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-x-0 top-5 sm:top-7 bottom-0 w-full">
         <WeddingPhoto
           src={wedding.images.hero.src}
           alt={wedding.images.hero.alt}
           fill
           priority
-          quality={95}
-          sizes="100vw"
+          quality={100}
+          sizes="(orientation: portrait) 250vw, 100vw"
           containerClassName="w-full h-full"
-          className="object-cover object-[22%_14%] sm:object-[25%_16%] lg:object-[25%_18%] contrast-[1.07] saturate-[1.16] brightness-[0.98]"
+          className="object-cover object-[47%_20%] sm:object-[48%_18%] lg:object-[48%_20%] contrast-[1.02] saturate-[1.03]"
         />
 
         {/* Dreamy radial edge vignette: completely clear across the couple in the center, softly feathered around outer edges */}
@@ -31,33 +31,33 @@ export function Hero() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 85% 76% at 45% 38%, rgba(250,245,236,0) 0%, rgba(250,245,236,0) 52%, rgba(250,245,236,0.12) 68%, rgba(250,245,236,0.32) 84%, rgba(250,245,236,0.62) 100%)",
+              "radial-gradient(ellipse 84% 76% at 48% 35%, rgba(250,245,236,0) 0%, rgba(250,245,236,0) 54%, rgba(250,245,236,0.10) 70%, rgba(250,245,236,0.28) 86%, rgba(250,245,236,0.56) 100%)",
           }}
         />
 
-        {/* Ultra-smooth top sunlit fade so transparent navbar remains effortless to read without any harsh cutoff */}
+        {/* Seamless top sunlit fade blending the photo's top edge into the ivory navbar area */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-40"
+          className="pointer-events-none absolute inset-x-0 top-0 h-20 sm:h-24 lg:h-28"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(250,245,236,0.74) 0%, rgba(250,245,236,0.50) 25%, rgba(250,245,236,0.26) 52%, rgba(250,245,236,0.09) 76%, rgba(250,245,236,0.02) 90%, rgba(250,245,236,0) 100%)",
+              "linear-gradient(to bottom, #FAF5EC 0%, rgba(250,245,236,0.85) 20%, rgba(250,245,236,0.48) 48%, rgba(250,245,236,0.16) 76%, rgba(250,245,236,0) 100%)",
           }}
         />
 
         {/* Ultra-smooth multi-stop bottom warm ivory veil that feathers gradually with zero abrupt cutoff line */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] sm:h-[58%] lg:h-[56%]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] sm:h-[54%] lg:h-[54%]"
           style={{
             background:
-              "linear-gradient(to top, #FAF5EC 0%, rgba(250,245,236,0.98) 12%, rgba(250,245,236,0.92) 24%, rgba(250,245,236,0.80) 36%, rgba(250,245,236,0.62) 48%, rgba(250,245,236,0.42) 60%, rgba(250,245,236,0.23) 72%, rgba(250,245,236,0.10) 84%, rgba(250,245,236,0.03) 93%, rgba(250,245,236,0) 100%)",
+              "linear-gradient(to top, #FAF5EC 0%, rgba(250,245,236,0.98) 18%, rgba(250,245,236,0.93) 34%, rgba(250,245,236,0.82) 48%, rgba(250,245,236,0.62) 62%, rgba(250,245,236,0.38) 76%, rgba(250,245,236,0.16) 88%, rgba(250,245,236,0.03) 95%, rgba(250,245,236,0) 100%)",
           }}
         />
       </div>
 
       {/* Centered Invitation Lockup near the Bottom: Names, Date, and Buttons */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-end px-4 sm:px-8 pt-24 pb-7 sm:pb-10 lg:pb-11">
+      <div className="relative z-10 w-full flex flex-col items-center justify-end px-4 sm:px-8 pt-24 pb-6 sm:pb-8 lg:pb-10">
         <div className="relative flex flex-col items-center text-center px-2 py-2 sm:px-8 sm:py-3 max-w-4xl w-full">
           {/* Couple's Full Calligraphic Names (Horizontal Lockup matching Invitation) */}
           <h1 className="relative flex flex-row items-center justify-center gap-3 min-[375px]:gap-4 sm:gap-7 md:gap-9 w-full">
